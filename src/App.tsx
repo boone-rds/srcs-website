@@ -1,11 +1,25 @@
+import { Route, Routes } from 'react-router-dom';
+import Header from './components/Header/Header';
+import Footer from './components/Footer/Footer';
+import BackToTop from './components/BackToTop/BackToTop';
+import ScrollToHash from './components/ScrollToHash/ScrollToHash';
+import Home from './pages/Home/Home';
+import MeetTheTeam from './pages/MeetTheTeam/MeetTheTeam';
+
 function App() {
   return (
-    <main>
-      <section>
-        <h1>Soil-Right Consulting Services</h1>
-        <p>SRCS website rebuild is underway.</p>
-      </section>
-    </main>
+    <>
+      <ScrollToHash />
+      <Header />
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/meet-the-team" element={<MeetTheTeam />} />
+      </Routes>
+
+      <Footer />
+      <BackToTop />
+    </>
   );
 }
 

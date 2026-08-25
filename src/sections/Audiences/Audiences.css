@@ -1,0 +1,116 @@
+.audiences {
+  padding: var(--section-space-lg) 0;
+  background: var(--color-cream);
+}
+
+.audiences__header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 480px);
+  gap: 80px;
+  align-items: end;
+  margin-bottom: 72px;
+}
+
+.audiences__eyebrow {
+  grid-column: 1 / -1;
+  margin-bottom: -42px;
+  color: var(--color-field);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.audiences h2 {
+  max-width: 760px;
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(2.8rem, 5vw, 4.8rem);
+  font-weight: 500;
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+
+.audiences__header > p:last-child {
+  margin: 0;
+  color: var(--color-ink-soft);
+  line-height: 1.8;
+}
+
+.audiences__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0;
+  border-top: 1px solid rgb(31 38 31 / 14%);
+}
+
+.audience-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 310px;
+  padding: 42px 42px 36px 0;
+  border-bottom: 1px solid rgb(31 38 31 / 14%);
+}
+
+.audience-card a {
+  margin-top: auto;
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
+.audience-card:nth-child(even) {
+  padding-right: 0;
+  padding-left: 42px;
+  border-left: 1px solid rgb(31 38 31 / 14%);
+}
+
+.audience-card__line {
+  display: block;
+  width: 42px;
+  height: 3px;
+  margin-bottom: 34px;
+  background: var(--color-accent);
+}
+
+.audience-card h3 {
+  margin-bottom: 18px;
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 3vw, 2.7rem);
+  font-weight: 500;
+  line-height: 1.08;
+}
+
+.audience-card p {
+  max-width: 520px;
+  margin-bottom: 28px;
+  color: var(--color-ink-soft);
+  line-height: 1.75;
+}
+
+.audience-card a {
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
+@media (max-width: 800px) {
+  .audiences__header {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .audiences__eyebrow {
+    grid-column: auto;
+    margin-bottom: 0;
+  }
+
+  .audiences__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .audience-card,
+  .audience-card:nth-child(even) {
+    padding: 38px 0;
+    border-left: 0;
+  }
+}

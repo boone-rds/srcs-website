@@ -1,0 +1,111 @@
+.problems {
+  padding: var(--section-space-lg) 0;
+  background: var(--color-field-dark);
+  color: var(--color-white);
+}
+
+.problems__header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 440px);
+  gap: 80px;
+  align-items: end;
+  margin-bottom: 70px;
+}
+
+.problems__eyebrow {
+  margin-bottom: 18px;
+  color: rgb(255 255 255 / 60%);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.problems h2 {
+  max-width: 700px;
+  margin-bottom: 0;
+  font-family: var(--font-display);
+  font-size: clamp(2.8rem, 5vw, 4.8rem);
+  font-weight: 500;
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+
+.problems__intro {
+  margin: 0;
+  color: rgb(255 255 255 / 68%);
+  line-height: 1.75;
+}
+
+.problems__grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  border-top: 1px solid rgb(255 255 255 / 18%);
+}
+
+.problem-card {
+  min-height: 310px;
+  padding: 34px 28px 24px;
+  border-right: 1px solid rgb(255 255 255 / 18%);
+}
+
+.problem-card:first-child {
+  border-left: 1px solid rgb(255 255 255 / 18%);
+}
+
+.problem-card__number {
+  display: block;
+  margin-bottom: 72px;
+  color: var(--color-accent);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+}
+
+.problem-card h3 {
+  margin-bottom: 18px;
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-weight: 500;
+  line-height: 1.08;
+}
+
+.problem-card p {
+  margin: 0;
+  color: rgb(255 255 255 / 64%);
+  font-size: 0.92rem;
+  line-height: 1.7;
+}
+
+@media (max-width: 1050px) {
+  .problems__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .problem-card {
+    border-bottom: 1px solid rgb(255 255 255 / 18%);
+  }
+}
+
+@media (max-width: 800px) {
+  .problems__header {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+}
+
+@media (max-width: 600px) {
+  .problems__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .problem-card,
+  .problem-card:first-child {
+    border-right: 0;
+    border-left: 0;
+  }
+
+  .problem-card__number {
+    margin-bottom: 40px;
+  }
+}
