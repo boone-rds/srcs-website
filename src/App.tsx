@@ -6,6 +6,7 @@ import ScrollToHash from './components/ScrollToHash/ScrollToHash';
 import Home from './pages/Home/Home';
 import MeetTheTeam from './pages/MeetTheTeam/MeetTheTeam';
 import WhatWeDo from './pages/WhatWeDo/WhatWeDo';
+import DigDeeper from './sections/DigDeeper/DigDeeper';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/meet-the-team" element={<MeetTheTeam />} />
         <Route path="/what-we-do" element={<WhatWeDo />} />
+        <Route path="/dig-deeper" element={<DigDeeper />} />
       </Routes>
 
       <Footer />

@@ -35,7 +35,7 @@ function Header() {
         <nav className="site-header__nav" aria-label="Primary navigation">
           <Link to="/what-we-do">What We Do</Link>
           <Link to="/#who-we-help">Who We Help</Link>
-          <Link to="/#dig-deeper">Dig Deeper</Link>
+          <Link to="/dig-deeper">Dig Deeper</Link>
 
           <div className="site-header__dropdown">
             <Link to="/#about" className="site-header__dropdown-trigger">
