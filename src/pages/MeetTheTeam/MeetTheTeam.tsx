@@ -1,23 +1,27 @@
+import { Link } from 'react-router-dom';
 import './MeetTheTeam.css';
 
 const team = [
   {
     name: 'Randy Darr',
-    role: 'Founder',
+    role: 'Founder & Senior Agronomic Advisor',
+    image: '/images/team/randy-darr.jpg',
     summary:
-      'Randy brings more than four decades of experience helping growers understand soil, fertility, and field performance. His perspective is rooted in observation, relationships, and a lifetime of asking what the ground is really telling us.',
+      'Randy founded Soil-Right and brings more than four decades of experience in soil fertility, crop production, and agronomic consulting. His work is grounded in field observation, long-term relationships, and a deep understanding of how soil chemistry and management decisions interact over time.',
   },
   {
     name: 'Daniel “Boone” Raney',
     role: 'CEO',
+    image: '/images/team/boone-raney.jpg',
     summary:
-      'Boone focuses on connecting agronomic experience with modern data, systems, and decision-making. His work centers on helping clients turn information into practical choices that improve stewardship, efficiency, and performance.',
+      'Boone brings agronomic experience together with systems thinking, technology, and data-informed decision making. His focus is helping growers and partners turn field, operational, and agronomic information into practical decisions that improve stewardship, efficiency, and long-term performance.',
   },
   {
     name: 'Seth Darr',
-    role: 'Operations',
+    role: 'Operations & Field Services',
+    image: '/images/team/seth-darr.jpg',
     summary:
-      'Seth helps turn plans into field execution, coordinating logistics, sampling, operational details, and the practical work required to deliver dependable results.',
+      'Seth leads much of the coordination and field execution behind Soil-Right’s work. From sampling and logistics to field operations and client support, he helps ensure that the information used in a recommendation begins with dependable work on the ground.',
   },
 ];
 
@@ -60,7 +64,7 @@ function MeetTheTeam() {
 
               <div className="team-member__identity">
                 <div className="team-member__photo">
-                  <span>Photo</span>
+                  <img src={member.image} alt={member.name} />
                 </div>
 
                 <div>
@@ -83,7 +87,7 @@ function MeetTheTeam() {
             Listen carefully. Ask better questions. Recommend what is right.
           </h2>
 
-          <a href="/#contact">Start a Conversation</a>
+          <Link to="/#contact">Start a Conversation</Link>
         </div>
       </section>
     </main>

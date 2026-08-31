@@ -91,16 +91,15 @@
 }
 
 .team-member__photo {
-  display: flex;
   aspect-ratio: 4 / 5;
-  align-items: center;
-  justify-content: center;
   overflow: hidden;
   background: var(--color-cream-deep);
-  color: var(--color-ink-soft);
-  font-size: 0.72rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+}
+
+.team-member__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .team-member h2 {

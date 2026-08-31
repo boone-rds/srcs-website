@@ -5,6 +5,7 @@ import BackToTop from './components/BackToTop/BackToTop';
 import ScrollToHash from './components/ScrollToHash/ScrollToHash';
 import Home from './pages/Home/Home';
 import MeetTheTeam from './pages/MeetTheTeam/MeetTheTeam';
+import WhatWeDo from './pages/WhatWeDo/WhatWeDo';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/meet-the-team" element={<MeetTheTeam />} />
+        <Route path="/what-we-do" element={<WhatWeDo />} />
       </Routes>
 
       <Footer />
