@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './WhatWeDo.css';
 
@@ -195,10 +196,48 @@ const pillars = [
 ];
 
 function WhatWeDo() {
+  const [isMobile, setIsMobile] = useState(
+    () => window.matchMedia('(max-width: 900px)').matches,
+  );
+
+  const [openPillar, setOpenPillar] = useState<string | null>(() =>
+    window.matchMedia('(max-width: 900px)').matches ? null : 'all',
+  );
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(max-width: 900px)');
+
+    const handleChange = (event: MediaQueryListEvent) => {
+      setIsMobile(event.matches);
+      setOpenPillar(event.matches ? null : 'all');
+    };
+
+    mediaQuery.addEventListener('change', handleChange);
+
+    return () => {
+      mediaQuery.removeEventListener('change', handleChange);
+    };
+  }, []);
+
+  const togglePillar = (pillarNumber: string) => {
+    if (!isMobile) {
+      return;
+    }
+
+    setOpenPillar((current) =>
+      current === pillarNumber ? null : pillarNumber,
+    );
+  };
+
   return (
     <main className="what-page">
       <section className="what-page__hero">
         <div className="container">
+          <div className="page-breadcrumb" aria-label="Breadcrumb">
+            <Link to="/">Home</Link>
+            <span>/</span>
+            <span>What We Do</span>
+          </div>
           <p className="what-page__eyebrow">What We Do</p>
 
           <h1>We help turn information into decisions.</h1>
@@ -247,49 +286,81 @@ function WhatWeDo() {
 
       <section className="what-page__pillars">
         <div className="container">
-          {pillars.map((pillar) => (
-            <article className="what-pillar" key={pillar.number}>
-              <div className="what-pillar__top">
-                <div className="what-pillar__number">{pillar.number}</div>
+          {pillars.map((pillar) => {
+            const servicesOpen =
+              !isMobile || openPillar === 'all' || openPillar === pillar.number;
 
-                <div className="what-pillar__heading">
-                  <h2>{pillar.title}</h2>
-                  <p>{pillar.intro}</p>
+            return (
+              <article className="what-pillar" key={pillar.number}>
+                <div className="what-pillar__top">
+                  <div className="what-pillar__number">{pillar.number}</div>
+
+                  <div className="what-pillar__heading">
+                    <h2>{pillar.title}</h2>
+                    <p>{pillar.intro}</p>
+                  </div>
+
+                  <div className="what-pillar__outcomes">
+                    <span className="what-pillar__label">We help you</span>
+
+                    <ul>
+                      {pillar.outcomes.map((outcome) => (
+                        <li key={outcome}>{outcome}</li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
 
-                <div className="what-pillar__outcomes">
-                  <span className="what-pillar__label">We help you</span>
+                <button
+                  className={`what-pillar__toggle ${
+                    servicesOpen ? 'what-pillar__toggle--open' : ''
+                  }`}
+                  type="button"
+                  aria-expanded={servicesOpen}
+                  aria-controls={`services-${pillar.number}`}
+                  onClick={() => togglePillar(pillar.number)}
+                >
+                  <span>
+                    {servicesOpen
+                      ? 'Hide Services & Programs'
+                      : 'View Services & Programs'}
+                  </span>
 
-                  <ul>
-                    {pillar.outcomes.map((outcome) => (
-                      <li key={outcome}>{outcome}</li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
+                  <span className="what-pillar__toggle-icon" aria-hidden="true">
+                    {servicesOpen ? '−' : '+'}
+                  </span>
+                </button>
 
-              <div className="what-pillar__services">
-                <div className="what-pillar__services-header">
-                  <span className="what-pillar__label">Ways we help</span>
+                <div
+                  className={`what-pillar__services ${
+                    servicesOpen ? 'what-pillar__services--open' : ''
+                  }`}
+                  id={`services-${pillar.number}`}
+                >
+                  <div className="what-pillar__services-inner">
+                    <div className="what-pillar__services-header">
+                      <span className="what-pillar__label">Ways we help</span>
 
-                  <p>
-                    Specific services and programs are selected based on the
-                    question, the operation, and the information needed to make
-                    a better decision.
-                  </p>
-                </div>
-
-                <div className="what-pillar__service-grid">
-                  {pillar.services.map((service) => (
-                    <div className="service-item" key={service.name}>
-                      <h3>{service.name}</h3>
-                      <p>{service.description}</p>
+                      <p>
+                        Specific services and programs are selected based on the
+                        question, the operation, and the information needed to
+                        make a better decision.
+                      </p>
                     </div>
-                  ))}
+
+                    <div className="what-pillar__service-grid">
+                      {pillar.services.map((service) => (
+                        <div className="service-item" key={service.name}>
+                          <h3>{service.name}</h3>
+                          <p>{service.description}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </article>
-          ))}
+              </article>
+            );
+          })}
         </div>
       </section>
 

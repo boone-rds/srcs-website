@@ -3,22 +3,24 @@ import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import BackToTop from './components/BackToTop/BackToTop';
 import ScrollToHash from './components/ScrollToHash/ScrollToHash';
+import ScrollToTopOnRoute from './components/ScrollToTopOnRoute/ScrollToTopOnRoute';
 import Home from './pages/Home/Home';
 import MeetTheTeam from './pages/MeetTheTeam/MeetTheTeam';
 import WhatWeDo from './pages/WhatWeDo/WhatWeDo';
-import DigDeeper from './sections/DigDeeper/DigDeeper';
+import DigDeeperPage from './pages/DigDeeper/DigDeeper';
 
 function App() {
   return (
     <>
       <ScrollToHash />
+      <ScrollToTopOnRoute />
       <Header />
 
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/meet-the-team" element={<MeetTheTeam />} />
         <Route path="/what-we-do" element={<WhatWeDo />} />
-        <Route path="/dig-deeper" element={<DigDeeper />} />
+        <Route path="/dig-deeper" element={<DigDeeperPage />} />
       </Routes>
 
       <Footer />

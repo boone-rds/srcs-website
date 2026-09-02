@@ -337,3 +337,28 @@
     gap: 16px;
   }
 }
+
+@media (max-width: 600px) {
+  .deeper-page__hero {
+    padding-top: 120px;
+    padding-bottom: 60px;
+  }
+
+  .deeper-page__principle,
+  .deeper-page__boundary {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+
+  .deeper-page__ladder {
+    padding-bottom: 60px;
+  }
+
+  .deeper-page__section-header {
+    margin-bottom: 40px;
+  }
+
+  .deeper-page__future h2 {
+    margin-bottom: 40px;
+  }
+}

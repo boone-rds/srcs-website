@@ -30,6 +30,11 @@ function MeetTheTeam() {
     <main className="team-page">
       <section className="team-page__hero">
         <div className="container">
+          <div className="page-breadcrumb" aria-label="Breadcrumb">
+            <Link to="/">Home</Link>
+            <span>/</span>
+            <span>Meet the Team</span>
+          </div>
           <p className="team-page__eyebrow">Meet the Team</p>
 
           <h1>The people behind the questions.</h1>

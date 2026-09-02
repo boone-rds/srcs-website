@@ -58,3 +58,65 @@ p {
 section[id] {
   scroll-margin-top: 20px;
 }
+
+.page-breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 22px;
+  color: rgb(255 255 255 / 46%);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.page-breadcrumb a {
+  color: rgb(255 255 255 / 66%);
+  transition: color var(--transition-fast);
+}
+
+.page-breadcrumb a:hover {
+  color: var(--color-white);
+}
+
+.page-breadcrumb span:last-child {
+  color: var(--color-accent);
+}
+
+@media (max-width: 600px) {
+  .team-page__hero,
+  .what-page__hero,
+  .deeper-page__hero {
+    padding-top: 120px;
+    padding-bottom: 60px;
+  }
+
+  .team-page__intro,
+  .team-page__close,
+  .what-page__philosophy,
+  .what-page__decision,
+  .deeper-page__principle,
+  .deeper-page__boundary {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+
+  .what-page__process {
+    padding-bottom: 60px;
+  }
+
+  .page-breadcrumb {
+    margin-bottom: 16px;
+    font-size: 0.64rem;
+  }
+
+  .contact-cta {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+
+  .footer {
+    padding-top: 44px;
+  }
+}

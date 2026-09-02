@@ -1,7 +1,16 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Footer.css';
 
+type FooterSection = 'explore' | 'connect' | 'access';
+
 function Footer() {
+  const [openSection, setOpenSection] = useState<FooterSection | null>(null);
+
+  const toggleSection = (section: FooterSection) => {
+    setOpenSection((current) => (current === section ? null : section));
+  };
+
   return (
     <footer className="footer">
       <div className="container footer__top">
@@ -18,25 +27,84 @@ function Footer() {
         </div>
 
         <div className="footer__links">
-          <div>
-            <span>Explore</span>
-            <Link to="/#what-we-do">What We Do</Link>
-            <Link to="/#who-we-help">Who We Help</Link>
-            <Link to="/#dig-deeper">Dig Deeper</Link>
-            <Link to="/#about">About</Link>
-            <Link to="/meet-the-team">Meet the Team</Link>
+          <div className="footer__group">
+            <button
+              className="footer__group-trigger"
+              type="button"
+              aria-expanded={openSection === 'explore'}
+              onClick={() => toggleSection('explore')}
+            >
+              <span>Explore</span>
+              <span className="footer__group-icon" aria-hidden="true">
+                {openSection === 'explore' ? '−' : '+'}
+              </span>
+            </button>
+
+            <div
+              className={`footer__group-content ${
+                openSection === 'explore' ? 'footer__group-content--open' : ''
+              }`}
+            >
+              <Link to="/what-we-do">What We Do</Link>
+              <Link to="/#who-we-help">Who We Help</Link>
+              <Link to="/dig-deeper">Dig Deeper</Link>
+              <Link to="/#about">About</Link>
+              <Link to="/meet-the-team">Meet the Team</Link>
+            </div>
           </div>
 
-          <div>
-            <span>Connect</span>
-            <Link to="/#contact">Contact</Link>
-            <a href="mailto:info@soilright.com">Email SRCS</a>
+          <div className="footer__group">
+            <button
+              className="footer__group-trigger"
+              type="button"
+              aria-expanded={openSection === 'connect'}
+              onClick={() => toggleSection('connect')}
+            >
+              <span>Connect</span>
+              <span className="footer__group-icon" aria-hidden="true">
+                {openSection === 'connect' ? '−' : '+'}
+              </span>
+            </button>
+
+            <div
+              className={`footer__group-content ${
+                openSection === 'connect' ? 'footer__group-content--open' : ''
+              }`}
+            >
+              <Link to="/#contact">Contact</Link>
+              <a href="mailto:info@soilright.com">Email SRCS</a>
+            </div>
           </div>
 
-          <div>
-            <span>Access</span>
-            <span className="footer__coming">Client Login</span>
-            <span className="footer__coming">SR Advisor Login</span>
+          <div className="footer__group">
+            <button
+              className="footer__group-trigger"
+              type="button"
+              aria-expanded={openSection === 'access'}
+              onClick={() => toggleSection('access')}
+            >
+              <span>Access</span>
+              <span className="footer__group-icon" aria-hidden="true">
+                {openSection === 'access' ? '−' : '+'}
+              </span>
+            </button>
+
+            <div
+              className={`footer__group-content ${
+                openSection === 'access' ? 'footer__group-content--open' : ''
+              }`}
+            >
+              <span className="footer__coming">Client Login</span>
+              <span className="footer__coming">SR Advisor Login</span>
+
+              <a
+                href="https://utilities.raneydaysolutions.com/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                RDS Utilities ↗
+              </a>
+            </div>
           </div>
         </div>
       </div>

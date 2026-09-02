@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import './DigDeeper.css';
 
 const resources = [
@@ -7,13 +8,15 @@ const resources = [
     description:
       'Articles, explanations, field observations, and practical thinking around soil, fertility, data, and farm decision-making.',
     status: 'Growing library',
+    to: '/dig-deeper#insights',
   },
   {
     label: 'Tools',
     title: 'Put useful information to work.',
     description:
-      'Calculators, field utilities, weather and agronomic resources, and future decision-support tools designed to answer real questions.',
-    status: 'Coming soon',
+      'Calculators, field utilities, planning resources, and decision-support tools designed to answer real questions.',
+    status: 'Growing over time',
+    to: '/dig-deeper#tools',
   },
   {
     label: 'Events',
@@ -21,6 +24,7 @@ const resources = [
     description:
       'Seminars, workshops, webinars, and educational events focused on helping people understand their land and make better decisions.',
     status: 'Dig Deeper Seminar',
+    to: '/dig-deeper',
   },
 ];
 
@@ -45,12 +49,20 @@ function DigDeeper() {
               Dig Deeper is where SRCS shares the tools, ideas, and resources
               behind the work.
             </p>
+
+            <Link className="dig-deeper__main-link" to="/dig-deeper">
+              Explore Dig Deeper →
+            </Link>
           </div>
         </div>
 
         <div className="dig-deeper__grid">
           {resources.map((resource) => (
-            <article className="resource-card" key={resource.label}>
+            <Link
+              className="resource-card"
+              key={resource.label}
+              to={resource.to}
+            >
               <div>
                 <span className="resource-card__label">{resource.label}</span>
                 <h3>{resource.title}</h3>
@@ -59,9 +71,9 @@ function DigDeeper() {
 
               <div className="resource-card__footer">
                 <span>{resource.status}</span>
-                <span aria-hidden="true">↗</span>
+                <span aria-hidden="true">→</span>
               </div>
-            </article>
+            </Link>
           ))}
         </div>
 
@@ -69,9 +81,9 @@ function DigDeeper() {
           <span className="dig-deeper__future-label">Where this is headed</span>
 
           <p>
-            Over time, Dig Deeper will grow into a broader library of free and
-            premium educational content, data resources, agronomic tools, and
-            client and SR Advisor resources.
+            Dig Deeper will grow into a broader library of free and premium
+            educational content, decision-support tools, and resources for
+            clients and Soil-Right Advisors.
           </p>
         </div>
       </div>

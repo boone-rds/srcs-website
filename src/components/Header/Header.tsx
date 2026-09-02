@@ -1,16 +1,31 @@
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Header.css';
 
 function Header() {
+  const [mobileOpen, setMobileOpen] = useState(false);
+
+  const closeMobileMenu = () => {
+    setMobileOpen(false);
+  };
+
+  useEffect(() => {
+    document.body.style.overflow = mobileOpen ? 'hidden' : '';
+
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [mobileOpen]);
+
   return (
     <header className="site-header">
       <div className="site-header__utility">
         <div className="container site-header__utility-inner">
-          <a href="/client-login">Client Login</a>
-          <a href="/advisor-login">Advisor Login</a>
+          <Link to="/client-login">Client Login</Link>
+          <Link to="/advisor-login">SR Advisor Login</Link>
 
           <a
-            href="https://raneydaysolutions.com/utilities"
+            href="https://utilities.raneydaysolutions.com/"
             target="_blank"
             rel="noreferrer"
           >
@@ -53,6 +68,74 @@ function Header() {
         <Link className="site-header__cta" to="/#contact">
           Start a Conversation
         </Link>
+
+        <button
+          className={`site-header__menu-button ${
+            mobileOpen ? 'site-header__menu-button--open' : ''
+          }`}
+          type="button"
+          aria-label={mobileOpen ? 'Close navigation' : 'Open navigation'}
+          aria-expanded={mobileOpen}
+          onClick={() => setMobileOpen((open) => !open)}
+        >
+          <span />
+          <span />
+        </button>
+      </div>
+
+      <div className={`mobile-nav ${mobileOpen ? 'mobile-nav--open' : ''}`}>
+        <nav
+          className="container mobile-nav__inner"
+          aria-label="Mobile navigation"
+        >
+          <div className="mobile-nav__primary">
+            <Link to="/what-we-do" onClick={closeMobileMenu}>
+              What We Do
+            </Link>
+            <Link to="/#who-we-help" onClick={closeMobileMenu}>
+              Who We Help
+            </Link>
+            <Link to="/dig-deeper" onClick={closeMobileMenu}>
+              Dig Deeper
+            </Link>
+            <Link to="/#about" onClick={closeMobileMenu}>
+              About Soil-Right
+            </Link>
+            <Link to="/meet-the-team" onClick={closeMobileMenu}>
+              Meet the Team
+            </Link>
+          </div>
+
+          <div className="mobile-nav__actions">
+            <Link
+              className="mobile-nav__cta"
+              to="/#contact"
+              onClick={closeMobileMenu}
+            >
+              Start a Conversation
+            </Link>
+          </div>
+
+          <div className="mobile-nav__access">
+            <span>Access</span>
+
+            <Link to="/client-login" onClick={closeMobileMenu}>
+              Client Login
+            </Link>
+            <Link to="/advisor-login" onClick={closeMobileMenu}>
+              SR Advisor Login
+            </Link>
+
+            <a
+              href="https://utilities.raneydaysolutions.com/"
+              target="_blank"
+              rel="noreferrer"
+              onClick={closeMobileMenu}
+            >
+              RDS Utilities ↗
+            </a>
+          </div>
+        </nav>
       </div>
     </header>
   );

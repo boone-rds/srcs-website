@@ -172,11 +172,23 @@
   content: '';
 }
 
+/* Service accordion trigger */
+
+.what-pillar__toggle {
+  display: none;
+}
+
+/* Services */
+
 .what-pillar__services {
   margin-top: 64px;
   margin-left: 120px;
-  padding-top: 44px;
+  overflow: hidden;
   border-top: 1px solid rgb(31 38 31 / 14%);
+}
+
+.what-pillar__services-inner {
+  padding-top: 44px;
 }
 
 .what-pillar__services-header {
@@ -226,6 +238,8 @@
   line-height: 1.7;
 }
 
+/* Closing CTA */
+
 .what-page__decision {
   padding: 120px 0;
   background: var(--color-soil-dark);
@@ -264,7 +278,7 @@
   .what-page__philosophy-grid,
   .what-pillar__top {
     grid-template-columns: 1fr;
-    gap: 32px;
+    gap: 28px;
   }
 
   .what-page__process-grid {
@@ -279,22 +293,137 @@
     text-align: left;
   }
 
+  .what-pillar {
+    padding: 60px 0;
+  }
+
+  .what-pillar__outcomes {
+    margin-top: 8px;
+  }
+
+  .what-pillar__toggle {
+    display: flex;
+    width: 100%;
+    min-height: 58px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin-top: 36px;
+    padding: 0 18px;
+    border: 1px solid var(--color-soil);
+    border-radius: var(--radius-sm);
+    background: transparent;
+    color: var(--color-soil);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-align: left;
+    text-transform: uppercase;
+    transition:
+      background var(--transition-fast),
+      color var(--transition-fast);
+  }
+
+  .what-pillar__toggle:hover {
+    background: rgb(111 78 55 / 8%);
+  }
+
+  .what-pillar__toggle--open {
+    background: var(--color-soil);
+    color: var(--color-white);
+  }
+
+  .what-pillar__toggle--open:hover {
+    background: var(--color-soil);
+  }
+
+  .what-pillar__toggle-icon {
+    flex: 0 0 auto;
+    font-family: var(--font-body);
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: 1;
+  }
+
   .what-pillar__services {
+    max-height: 0;
+    margin-top: 0;
     margin-left: 0;
+    overflow: hidden;
+    border-top: 0;
+    opacity: 0;
+    transition:
+      max-height 500ms ease,
+      opacity 250ms ease,
+      margin-top 300ms ease;
+  }
+
+  .what-pillar__services--open {
+    max-height: 2600px;
+    margin-top: 28px;
+    opacity: 1;
+  }
+
+  .what-pillar__services-inner {
+    padding-top: 28px;
+    border-top: 1px solid rgb(31 38 31 / 14%);
   }
 
   .what-pillar__services-header {
     grid-template-columns: 1fr;
-    gap: 12px;
+    gap: 10px;
+    margin-bottom: 28px;
   }
-}
 
-@media (max-width: 650px) {
   .what-pillar__service-grid {
     grid-template-columns: 1fr;
   }
 
   .service-item {
     min-height: 0;
+    padding: 24px 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .what-page__hero {
+    padding-top: 138px;
+    padding-bottom: 60px;
+  }
+
+  .what-page__philosophy,
+  .what-page__decision {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+
+  .what-page__process {
+    padding-bottom: 60px;
+  }
+
+  .what-pillar {
+    padding: 52px 0;
+  }
+
+  .what-pillar__top {
+    gap: 24px;
+  }
+
+  .what-pillar__heading h2 {
+    margin-bottom: 18px;
+  }
+
+  .what-pillar__toggle {
+    min-height: 56px;
+    margin-top: 30px;
+    padding: 0 16px;
+  }
+
+  .what-pillar__services--open {
+    margin-top: 24px;
+  }
+
+  .service-item {
+    padding: 22px 18px;
   }
 }

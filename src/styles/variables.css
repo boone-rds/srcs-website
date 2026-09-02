@@ -32,3 +32,10 @@
 
   --transition-fast: 180ms ease;
 }
+
+@media (max-width: 600px) {
+  :root {
+    --section-space-lg: 60px;
+    --section-space-md: 44px;
+  }
+}

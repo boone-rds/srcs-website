@@ -29,24 +29,42 @@
   gap: 50px;
 }
 
-.footer__links > div {
+.footer__group {
+  min-width: 0;
+}
+
+.footer__group-trigger {
+  display: block;
+  width: 100%;
+  margin: 0 0 12px;
+  padding: 0;
+  background: transparent;
+  color: var(--color-accent);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.footer__group-icon {
+  display: none;
+}
+
+.footer__group-content {
   display: flex;
   flex-direction: column;
   gap: 12px;
 }
 
-.footer__links > div > span:first-child {
-  margin-bottom: 12px;
-  color: var(--color-accent);
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-}
-
 .footer__links a {
   color: rgb(255 255 255 / 74%);
   font-size: 0.9rem;
+  transition: color var(--transition-fast);
+}
+
+.footer__links a:hover {
+  color: var(--color-white);
 }
 
 .footer__coming {
@@ -66,22 +84,78 @@
 }
 
 @media (max-width: 800px) {
+  .footer {
+    padding-top: 44px;
+  }
+
   .footer__top {
     grid-template-columns: 1fr;
-    gap: 50px;
+    gap: 36px;
+    padding-bottom: 36px;
+  }
+
+  .footer__brand img {
+    width: 190px;
+    margin-bottom: 20px;
+  }
+
+  .footer__brand p {
+    max-width: 420px;
+    font-size: 0.9rem;
   }
 
   .footer__links {
-    grid-template-columns: 1fr 1fr;
+    display: block;
+    border-top: 1px solid rgb(255 255 255 / 12%);
+  }
+
+  .footer__group {
+    border-bottom: 1px solid rgb(255 255 255 / 12%);
+  }
+
+  .footer__group-trigger {
+    display: flex;
+    min-height: 54px;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0;
+    color: rgb(255 255 255 / 72%);
+  }
+
+  .footer__group-icon {
+    display: block;
+    color: var(--color-accent);
+    font-size: 1.25rem;
+    font-weight: 400;
+    line-height: 1;
+  }
+
+  .footer__group-content {
+    max-height: 0;
+    gap: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition:
+      max-height 300ms ease,
+      opacity 200ms ease,
+      padding 300ms ease;
+  }
+
+  .footer__group-content--open {
+    max-height: 300px;
+    padding-bottom: 18px;
+    opacity: 1;
+  }
+
+  .footer__group-content a,
+  .footer__group-content .footer__coming {
+    display: block;
+    padding: 9px 0;
   }
 
   .footer__bottom {
     flex-direction: column;
-  }
-}
-
-@media (max-width: 520px) {
-  .footer__links {
-    grid-template-columns: 1fr;
+    gap: 8px;
+    padding-top: 20px;
   }
 }

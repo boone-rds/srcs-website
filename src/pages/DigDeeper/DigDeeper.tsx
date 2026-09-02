@@ -62,6 +62,11 @@ function DigDeeper() {
     <main className="deeper-page">
       <section className="deeper-page__hero">
         <div className="container">
+          <div className="page-breadcrumb" aria-label="Breadcrumb">
+            <Link to="/">Home</Link>
+            <span>/</span>
+            <span>Dig Deeper</span>
+          </div>
           <p className="deeper-page__eyebrow">Dig Deeper</p>
 
           <h1>Better stewardship starts with better understanding.</h1>
@@ -164,7 +169,7 @@ function DigDeeper() {
         </div>
       </section>
 
-      <section className="deeper-page__tools">
+      <section className="deeper-page__tools" id="tools">
         <div className="container">
           <div className="deeper-page__section-header">
             <div>
