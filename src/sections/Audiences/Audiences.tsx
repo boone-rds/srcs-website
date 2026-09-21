@@ -1,3 +1,4 @@
+import { useContactModal } from '../../components/ContactModal/ContactModalContext';
 import './Audiences.css';
 
 const audiences = [
@@ -29,6 +30,8 @@ const audiences = [
 ];
 
 function Audiences() {
+  const { openContactModal } = useContactModal();
+
   return (
     <section className="audiences" id="who-we-help">
       <div className="container">
@@ -50,7 +53,15 @@ function Audiences() {
               <span className="audience-card__line" />
               <h3>{audience.title}</h3>
               <p>{audience.description}</p>
-              <a href="#contact">Start a conversation →</a>
+              <a
+                href="#contact"
+                onClick={(event) => {
+                  event.preventDefault();
+                  openContactModal();
+                }}
+              >
+                Start a conversation →
+              </a>
             </article>
           ))}
         </div>

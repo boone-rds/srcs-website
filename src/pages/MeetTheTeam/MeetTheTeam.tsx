@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { useContactModal } from '../../components/ContactModal/ContactModalContext';
 import './MeetTheTeam.css';
 
 const team = [
@@ -26,6 +27,8 @@ const team = [
 ];
 
 function MeetTheTeam() {
+  const { openContactModal } = useContactModal();
+
   return (
     <main className="team-page">
       <section className="team-page__hero">
@@ -92,7 +95,15 @@ function MeetTheTeam() {
             Listen carefully. Ask better questions. Recommend what is right.
           </h2>
 
-          <Link to="/#contact">Start a Conversation</Link>
+          <Link
+            to="/#contact"
+            onClick={(event) => {
+              event.preventDefault();
+              openContactModal();
+            }}
+          >
+            Start a Conversation
+          </Link>
         </div>
       </section>
     </main>

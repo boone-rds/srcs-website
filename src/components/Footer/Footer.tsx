@@ -1,11 +1,13 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useContactModal } from '../ContactModal/ContactModalContext';
 import './Footer.css';
 
 type FooterSection = 'explore' | 'connect' | 'access';
 
 function Footer() {
   const [openSection, setOpenSection] = useState<FooterSection | null>(null);
+  const { openContactModal } = useContactModal();
 
   const toggleSection = (section: FooterSection) => {
     setOpenSection((current) => (current === section ? null : section));
@@ -71,7 +73,15 @@ function Footer() {
                 openSection === 'connect' ? 'footer__group-content--open' : ''
               }`}
             >
-              <Link to="/#contact">Contact</Link>
+              <Link
+                to="/#contact"
+                onClick={(event) => {
+                  event.preventDefault();
+                  openContactModal();
+                }}
+              >
+                Contact
+              </Link>
               <a href="mailto:info@soilright.com">Email SRCS</a>
             </div>
           </div>

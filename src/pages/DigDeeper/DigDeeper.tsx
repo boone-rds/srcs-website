@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { useContactModal } from '../../components/ContactModal/ContactModalContext';
 import './DigDeeper.css';
 
 const insights = [
@@ -58,6 +59,8 @@ const premiumTools = [
 ];
 
 function DigDeeper() {
+  const { openContactModal } = useContactModal();
+
   return (
     <main className="deeper-page">
       <section className="deeper-page__hero">
@@ -245,7 +248,15 @@ function DigDeeper() {
 
             <p>That is where Soil-Right advisory begins.</p>
 
-            <Link to="/#contact">Work With Soil-Right</Link>
+            <Link
+              to="/#contact"
+              onClick={(event) => {
+                event.preventDefault();
+                openContactModal();
+              }}
+            >
+              Work With Soil-Right
+            </Link>
           </div>
         </div>
       </section>

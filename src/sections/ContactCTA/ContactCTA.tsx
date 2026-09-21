@@ -1,6 +1,9 @@
+import { useContactModal } from '../../components/ContactModal/ContactModalContext';
 import './ContactCTA.css';
 
 function ContactCTA() {
+  const { openContactModal } = useContactModal();
+
   return (
     <section className="contact-cta" id="contact">
       <div className="container contact-cta__inner">
@@ -18,9 +21,13 @@ function ContactCTA() {
         </div>
 
         <div className="contact-cta__actions">
-          <a className="contact-cta__primary" href="mailto:info@soilright.com">
+          <button
+            className="contact-cta__primary"
+            type="button"
+            onClick={openContactModal}
+          >
             Start a Conversation
-          </a>
+          </button>
 
           <a className="contact-cta__secondary" href="#dig-deeper">
             Explore Dig Deeper

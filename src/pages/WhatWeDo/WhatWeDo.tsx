@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useContactModal } from '../../components/ContactModal/ContactModalContext';
 import './WhatWeDo.css';
 
 const pillars = [
@@ -196,6 +197,8 @@ const pillars = [
 ];
 
 function WhatWeDo() {
+  const { openContactModal } = useContactModal();
+
   const [isMobile, setIsMobile] = useState(
     () => window.matchMedia('(max-width: 900px)').matches,
   );
@@ -380,7 +383,15 @@ function WhatWeDo() {
             next decision with confidence.
           </p>
 
-          <Link to="/#contact">Start a Conversation</Link>
+          <Link
+            to="/#contact"
+            onClick={(event) => {
+              event.preventDefault();
+              openContactModal();
+            }}
+          >
+            Start a Conversation
+          </Link>
         </div>
       </section>
     </main>

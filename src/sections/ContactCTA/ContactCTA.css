@@ -44,7 +44,8 @@
   min-width: 220px;
 }
 
-.contact-cta__actions a {
+.contact-cta__actions a,
+.contact-cta__actions button {
   display: flex;
   align-items: center;
   justify-content: center;

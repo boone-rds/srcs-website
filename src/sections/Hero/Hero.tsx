@@ -1,6 +1,9 @@
+import { useContactModal } from '../../components/ContactModal/ContactModalContext';
 import './Hero.css';
 
 function Hero() {
+  const { openContactModal } = useContactModal();
+
   return (
     <section className="hero" id="top">
       <div className="hero__overlay" />
@@ -25,7 +28,14 @@ function Hero() {
               Dig Deeper
             </a>
 
-            <a className="hero__button hero__button--secondary" href="#contact">
+            <a
+              className="hero__button hero__button--secondary"
+              href="#contact"
+              onClick={(event) => {
+                event.preventDefault();
+                openContactModal();
+              }}
+            >
               Start a Conversation
             </a>
           </div>

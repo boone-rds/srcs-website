@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useContactModal } from '../ContactModal/ContactModalContext';
 import './Header.css';
 
 function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const { openContactModal } = useContactModal();
 
   const closeMobileMenu = () => {
     setMobileOpen(false);
@@ -65,7 +67,14 @@ function Header() {
           </div>
         </nav>
 
-        <Link className="site-header__cta" to="/#contact">
+        <Link
+          className="site-header__cta"
+          to="/#contact"
+          onClick={(event) => {
+            event.preventDefault();
+            openContactModal();
+          }}
+        >
           Start a Conversation
         </Link>
 
@@ -110,7 +119,11 @@ function Header() {
             <Link
               className="mobile-nav__cta"
               to="/#contact"
-              onClick={closeMobileMenu}
+              onClick={(event) => {
+                event.preventDefault();
+                closeMobileMenu();
+                openContactModal();
+              }}
             >
               Start a Conversation
             </Link>

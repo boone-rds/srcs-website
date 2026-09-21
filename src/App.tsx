@@ -4,6 +4,7 @@ import Footer from './components/Footer/Footer';
 import BackToTop from './components/BackToTop/BackToTop';
 import ScrollToHash from './components/ScrollToHash/ScrollToHash';
 import ScrollToTopOnRoute from './components/ScrollToTopOnRoute/ScrollToTopOnRoute';
+import ContactModalProvider from './components/ContactModal/ContactModalProvider';
 import Home from './pages/Home/Home';
 import MeetTheTeam from './pages/MeetTheTeam/MeetTheTeam';
 import WhatWeDo from './pages/WhatWeDo/WhatWeDo';
@@ -11,7 +12,7 @@ import DigDeeperPage from './pages/DigDeeper/DigDeeper';
 
 function App() {
   return (
-    <>
+    <ContactModalProvider>
       <ScrollToHash />
       <ScrollToTopOnRoute />
       <Header />
@@ -25,7 +26,7 @@ function App() {
 
       <Footer />
       <BackToTop />
-    </>
+    </ContactModalProvider>
   );
 }
 
