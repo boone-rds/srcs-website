@@ -53,6 +53,34 @@ const TURNSTILE_SITE_KEY = '0x4AAAAAAE_GKeTnTidZiotP';
 const CONTACT_GATEWAY_URL =
   'https://rds-contact-gateway.raneydaysolutions.workers.dev/contact';
 
+const EMAIL_PATTERN = '[^\\s@]+@[^\\s@]+\\.[^\\s@]+';
+const PHONE_PATTERN = '\\(\\d{3}\\) \\d{3}-\\d{4}';
+
+function formatPhoneNumber(value: string) {
+  const digits = value.replace(/\D/g, '');
+  const nationalNumber =
+    digits.length > 10 && digits.startsWith('1')
+      ? digits.slice(1, 11)
+      : digits.slice(0, 10);
+
+  if (nationalNumber.length === 0) {
+    return '';
+  }
+
+  if (nationalNumber.length <= 3) {
+    return `(${nationalNumber}`;
+  }
+
+  if (nationalNumber.length <= 6) {
+    return `(${nationalNumber.slice(0, 3)}) ${nationalNumber.slice(3)}`;
+  }
+
+  return `(${nationalNumber.slice(0, 3)}) ${nationalNumber.slice(
+    3,
+    6,
+  )}-${nationalNumber.slice(6)}`;
+}
+
 function TurnstileWidget({ onToken, resetKey }: TurnstileWidgetProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const widgetIdRef = useRef<string | null>(null);
@@ -337,7 +365,15 @@ function ContactModal({ isOpen, onClose }: ContactModalProps) {
                     type="email"
                     name="email"
                     autoComplete="email"
+                    inputMode="email"
                     maxLength={254}
+                    pattern={EMAIL_PATTERN}
+                    title="Enter a valid email address, such as name@example.com."
+                    onBlur={(event) => {
+                      event.currentTarget.value = event.currentTarget.value
+                        .trim()
+                        .toLowerCase();
+                    }}
                     required
                   />
                 </label>
@@ -348,7 +384,16 @@ function ContactModal({ isOpen, onClose }: ContactModalProps) {
                     type="tel"
                     name="phone"
                     autoComplete="tel"
-                    maxLength={50}
+                    inputMode="tel"
+                    maxLength={14}
+                    pattern={PHONE_PATTERN}
+                    placeholder="(555) 555-5555"
+                    title="Enter a 10-digit phone number."
+                    onInput={(event) => {
+                      event.currentTarget.value = formatPhoneNumber(
+                        event.currentTarget.value,
+                      );
+                    }}
                   />
                 </label>
 
