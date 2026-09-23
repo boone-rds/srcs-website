@@ -75,7 +75,8 @@
   gap: 22px;
 }
 
-.site-header__utility a {
+.site-header__utility a,
+.site-header__coming {
   color: rgb(255 255 255 / 66%);
   font-size: 0.67rem;
   font-weight: 700;
@@ -86,6 +87,11 @@
 
 .site-header__utility a:hover {
   color: var(--color-white);
+}
+
+.site-header__coming {
+  cursor: default;
+  opacity: 0.55;
 }
 
 .site-header__chevron {
@@ -292,12 +298,18 @@
     text-transform: uppercase;
   }
 
-  .mobile-nav__access a {
+  .mobile-nav__access a,
+  .mobile-nav__coming {
     color: rgb(255 255 255 / 68%);
     font-size: 0.78rem;
     font-weight: 700;
     letter-spacing: 0.06em;
     text-transform: uppercase;
+  }
+
+  .mobile-nav__coming {
+    opacity: 0.55;
+    cursor: default;
   }
 }
 

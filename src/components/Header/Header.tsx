@@ -23,8 +23,8 @@ function Header() {
     <header className="site-header">
       <div className="site-header__utility">
         <div className="container site-header__utility-inner">
-          <Link to="/client-login">Client Login</Link>
-          <Link to="/advisor-login">SR Advisor Login</Link>
+          <span className="site-header__coming">Client Login</span>
+          <span className="site-header__coming">SR Advisor Login</span>
 
           <a
             href="https://utilities.raneydaysolutions.com/"
@@ -132,12 +132,8 @@ function Header() {
           <div className="mobile-nav__access">
             <span>Access</span>
 
-            <Link to="/client-login" onClick={closeMobileMenu}>
-              Client Login
-            </Link>
-            <Link to="/advisor-login" onClick={closeMobileMenu}>
-              SR Advisor Login
-            </Link>
+            <span className="mobile-nav__coming">Client Login</span>
+            <span className="mobile-nav__coming">SR Advisor Login</span>
 
             <a
               href="https://utilities.raneydaysolutions.com/"
