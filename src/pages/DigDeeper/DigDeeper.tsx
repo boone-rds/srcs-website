@@ -277,8 +277,8 @@ function DigDeeper() {
               <span>Clients</span>
               <h3>Client Access</h3>
               <p>
-                Future access to field data, reports, raw files, resources,
-                invoices, and client-specific information.
+                Future access to client-specific information, reports,
+                resources, and decision-support tools.
               </p>
             </article>
 
