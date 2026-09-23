@@ -159,16 +159,6 @@ function DigDeeper() {
               </article>
             ))}
           </div>
-
-          <div className="deeper-page__cms-note">
-            <span>Future Publishing</span>
-
-            <p>
-              Authorized Soil-Right team members will be able to create, edit,
-              preview, and publish Insights through a simple internal content
-              editor without modifying website code.
-            </p>
-          </div>
         </div>
       </section>
 
