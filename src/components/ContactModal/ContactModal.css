@@ -148,13 +148,26 @@
 
 .contact-modal__verification {
   display: flex;
+  width: 100%;
+  min-width: 0;
   min-height: 78px;
   align-items: center;
   padding: 10px 0;
 }
 
 .contact-modal__turnstile {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  min-width: 0;
   min-height: 65px;
+  pointer-events: auto;
+  touch-action: manipulation;
+}
+
+.contact-modal__turnstile iframe {
+  max-width: 100%;
+  pointer-events: auto;
 }
 
 .contact-modal__status {
@@ -241,7 +254,7 @@
   }
 
   .contact-modal__verification {
-    overflow-x: auto;
+    overflow: visible;
   }
 
   .contact-modal__actions {

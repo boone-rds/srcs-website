@@ -17,6 +17,7 @@ type SubmissionStatus = 'idle' | 'submitting' | 'success' | 'error';
 type TurnstileOptions = {
   sitekey: string;
   theme?: 'light' | 'dark' | 'auto';
+  size?: 'normal' | 'flexible' | 'compact';
   callback?: (token: string) => void;
   'expired-callback'?: () => void;
   'error-callback'?: () => void;
@@ -101,6 +102,7 @@ function TurnstileWidget({ onToken, resetKey }: TurnstileWidgetProps) {
       widgetIdRef.current = window.turnstile.render(containerRef.current, {
         sitekey: TURNSTILE_SITE_KEY,
         theme: 'light',
+        size: 'flexible',
         callback: (token) => {
           onToken(token);
         },
