@@ -389,6 +389,7 @@ function ContactModal({ isOpen, onClose }: ContactModalProps) {
                     pattern={PHONE_PATTERN}
                     placeholder="(555) 555-5555"
                     title="Enter a 10-digit phone number."
+                    required
                     onInput={(event) => {
                       event.currentTarget.value = formatPhoneNumber(
                         event.currentTarget.value,
