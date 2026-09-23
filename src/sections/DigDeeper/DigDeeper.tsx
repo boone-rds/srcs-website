@@ -71,7 +71,6 @@ function DigDeeper() {
 
               <div className="resource-card__footer">
                 <span>{resource.status}</span>
-                <span aria-hidden="true">→</span>
               </div>
             </Link>
           ))}

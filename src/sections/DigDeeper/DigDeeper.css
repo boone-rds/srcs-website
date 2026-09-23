@@ -111,14 +111,6 @@
   text-transform: uppercase;
 }
 
-.resource-card__footer span:last-child {
-  transition: transform var(--transition-fast);
-}
-
-.resource-card:hover .resource-card__footer span:last-child {
-  transform: translateX(4px);
-}
-
 .dig-deeper__future {
   display: grid;
   grid-template-columns: 200px minmax(0, 700px);
