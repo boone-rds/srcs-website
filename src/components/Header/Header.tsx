@@ -55,10 +55,14 @@ function Header() {
           <Link to="/dig-deeper">Dig Deeper</Link>
 
           <div className="site-header__dropdown">
-            <Link to="/#about" className="site-header__dropdown-trigger">
+            <button
+              className="site-header__dropdown-trigger"
+              type="button"
+              aria-haspopup="true"
+            >
               About
               <span className="site-header__chevron" aria-hidden="true" />
-            </Link>
+            </button>
 
             <div className="site-header__dropdown-menu">
               <Link to="/#about">About Soil-Right</Link>
