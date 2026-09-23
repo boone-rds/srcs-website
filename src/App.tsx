@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import BackToTop from './components/BackToTop/BackToTop';
@@ -22,6 +22,8 @@ function App() {
         <Route path="/meet-the-team" element={<MeetTheTeam />} />
         <Route path="/what-we-do" element={<WhatWeDo />} />
         <Route path="/dig-deeper" element={<DigDeeperPage />} />
+
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
 
       <Footer />
