@@ -2,15 +2,7 @@
   position: relative;
   min-height: 780px;
   overflow: hidden;
-  background:
-    linear-gradient(
-      100deg,
-      rgb(25 32 23 / 95%) 0%,
-      rgb(35 45 31 / 86%) 42%,
-      rgb(50 57 40 / 56%) 72%,
-      rgb(50 57 40 / 30%) 100%
-    ),
-    url('/images/hero/hero-field.jpg') center / cover no-repeat;
+  background: url('/images/hero/srcs-hero-v1.jpg') center / cover no-repeat;
   color: var(--color-white);
 }
 
@@ -18,8 +10,21 @@
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(circle at 78% 35%, rgb(255 255 255 / 8%), transparent 26%),
-    linear-gradient(to top, rgb(20 25 18 / 45%), transparent 32%);
+    radial-gradient(
+      ellipse at 0% 58%,
+      rgb(20 35 23 / 58%) 0%,
+      rgb(20 35 23 / 38%) 32%,
+      rgb(20 35 23 / 10%) 60%,
+      transparent 78%
+    ),
+    linear-gradient(
+      180deg,
+      transparent 0%,
+      transparent 24%,
+      rgb(20 35 23 / 12%) 38%,
+      rgb(20 35 23 / 52%) 72%,
+      rgb(20 35 23 / 72%) 100%
+    );
   pointer-events: none;
 }
 
@@ -45,6 +50,7 @@
   font-weight: 700;
   letter-spacing: 0.18em;
   text-transform: uppercase;
+  text-shadow: 0 2px 8px rgb(0 0 0 / 45%);
 }
 
 .hero h1 {
