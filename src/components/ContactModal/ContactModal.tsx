@@ -381,7 +381,7 @@ function ContactModal({ isOpen, onClose }: ContactModalProps) {
                 </label>
 
                 <label className="contact-modal__field">
-                  <span>Phone</span>
+                  <span>Phone *</span>
                   <input
                     type="tel"
                     name="phone"
