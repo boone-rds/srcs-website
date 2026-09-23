@@ -7,7 +7,7 @@ const resources = [
     title: 'Learn the why behind the recommendation.',
     description:
       'Articles, explanations, field observations, and practical thinking around soil, fertility, data, and farm decision-making.',
-    status: 'Growing library',
+    status: 'Coming Soon',
     to: '/dig-deeper#insights',
   },
   {
@@ -15,7 +15,7 @@ const resources = [
     title: 'Put useful information to work.',
     description:
       'Calculators, field utilities, planning resources, and decision-support tools designed to answer real questions.',
-    status: 'Growing over time',
+    status: 'Coming Soon',
     to: '/dig-deeper#tools',
   },
   {
