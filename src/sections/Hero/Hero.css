@@ -2,7 +2,8 @@
   position: relative;
   min-height: 780px;
   overflow: hidden;
-  background: url('/images/hero/srcs-hero-v1.jpg') center / cover no-repeat;
+  background: url('/images/hero/srcs-hero-desktop.webp') center / cover
+    no-repeat;
   color: var(--color-white);
 }
 
@@ -130,6 +131,10 @@
 }
 
 @media (max-width: 900px) {
+  .hero {
+    background-image: url('/images/hero/srcs-hero-tablet.webp');
+  }
+
   .hero,
   .hero__inner {
     min-height: 720px;
@@ -148,6 +153,7 @@
 @media (max-width: 600px) {
   .hero {
     min-height: 680px;
+    background-image: url('/images/hero/srcs-hero-mobile.webp');
   }
 
   .hero__inner {
