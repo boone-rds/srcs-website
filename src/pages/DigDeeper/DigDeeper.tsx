@@ -155,7 +155,7 @@ function DigDeeper() {
               <article className="insight-card" key={insight.title}>
                 <span>{insight.category}</span>
                 <h3>{insight.title}</h3>
-                <p>Future Insight</p>
+                <p className="insight-card__status">Coming Soon</p>
               </article>
             ))}
           </div>
@@ -183,7 +183,7 @@ function DigDeeper() {
                 <span className="tool-card__access">Free</span>
                 <h3>{tool.title}</h3>
                 <p>{tool.description}</p>
-                <span className="tool-card__status">Planned</span>
+                <span className="tool-card__status">Coming Soon</span>
               </article>
             ))}
           </div>
@@ -214,7 +214,7 @@ function DigDeeper() {
                   <p>{tool.description}</p>
                 </div>
 
-                <span className="premium-card__status">Future Tool</span>
+                <span className="premium-card__status">Coming Soon</span>
               </article>
             ))}
           </div>
